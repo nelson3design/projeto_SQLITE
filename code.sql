@@ -1,6 +1,9 @@
 -- CLIENTE DEPENDENTE
 
-SELECT id_cliente, nome FROM cliente JOIN cliente_conta ON cliente.id=cliente_conta.id_cliente WHERE cliente_conta.dependente =1;
+SELECT id_cliente, nome FROM cliente JOIN cliente_conta 
+ON cliente.id=cliente_conta.id_cliente
+WHERE Cliente_conta.dependente
+GROUP BY id_cliente
 
  -- CONTA QUE MAIS FIZERAM TRANSACÇÕES
 SELECT id_cliente_conta, MAX(valor) FROM transacao GROUP BY valor ORDER BY valor DESC LIMIT 5
